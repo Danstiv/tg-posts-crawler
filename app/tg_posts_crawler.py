@@ -2,6 +2,7 @@ import asyncio
 import json
 import logging
 import os
+import time
 
 import pyrogram
 
@@ -57,6 +58,7 @@ class Controller:
     def save_data(self):
         self.log.info('Выполняется сохранение данных')
         data = {
+            'last_update_timestamp': int(time.time()),
             'channel_username': self.channel_username,
             'posts': self.posts,
             'tags': self.tags,
